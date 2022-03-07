@@ -1,16 +1,15 @@
 import React from 'react';
-import memedata from './../memedata.js';
+import memeData from './../memedata.js';
 
 export default function Meme() {
 
-    let allMeme = memedata.data.memes
-
-    const randomElement = allMeme[Math.floor(Math.random() * allMeme.length)];
+    let allMeme = memeData.data.memes
     const [meme, setMeme] = React.useState({
         img: 'http://i.imgflip.com/1bij.jpg',
         bottomText: '',
         topText: '',
     });
+    const [allMemeData, setMemeData] = React.useState(memeData);
 
     function Logw() {
         const randomElement = allMeme[Math.floor(Math.random() * allMeme.length)];
