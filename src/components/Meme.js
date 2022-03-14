@@ -18,21 +18,29 @@ export default function Meme() {
             img: randomElement.url,
         }))
     }
+    function setText(event) {
+        const { name, value } = event.target;
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
 
     return (
         <div className="meme">
             <>
                 <div className="inputBox">
-                    <input type="text" placeholder="insert your meme title"></input>
-                    <input type="text" placeholder="insert your meme text"></input>
+                    <input type="text" name="topText" onChange={setText} placeholder="insert your meme title"/>
+                    <input type="text" name="bottomText" onChange={setText} placeholder="insert your meme text"/>
                 </div>
                 <button type="" onClick={Logw}>Get a new meme image  🖼</button>
 
                 <div className="imageContainer">
-                    <img className="imageMeme" src={meme.img}>
-
-                    </img>
+                    <img className="imageMeme" src={meme.img} />
+                    <h2 className="meme--text top">{meme.topText}</h2>
+                    <h2 className="meme--text bottom">{meme.bottomText}</h2>
                 </div>
+
             </>
         </div>
     )
